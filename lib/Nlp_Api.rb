@@ -1,8 +1,9 @@
 module NlpApi
   
-  autoload :Request   "Nlp_Api/request"
-  autoload :Response  "Nlp_Api/response"
-  autoload :Api       "Nlp_Api/api"
+  autoload :Paper,   "./lib//nlp_api/paper"
+  autoload :Request,   "./lib//nlp_api/request"
+  # autoload :Response,  "nlp_api/response"
+  # autoload :Api,       "nlp_api/api"
   
   
   

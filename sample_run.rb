@@ -1,4 +1,7 @@
 
-require ./lib/Nlp_Api.rb
+require "./lib/nlp_api.rb"
 
-Nlp_Api.Request.build(2,30)
+
+
+paper = NlpApi::Paper.new(2,30)
+p paper

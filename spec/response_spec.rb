@@ -1,5 +1,6 @@
+require 'spec_helper'
 
-describe "API Response" do
+describe "Api Response" do
   
   pending "should be in the correct format" do
     response_xml = Factory.build(:response)

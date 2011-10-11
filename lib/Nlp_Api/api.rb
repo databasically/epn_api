@@ -1,4 +1,4 @@
-module Nlp_Api
+module NlpApi
   module Api
     
     

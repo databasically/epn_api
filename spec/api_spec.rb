@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "Api Transaction" do
 
   pending "should build the correct URI" do
