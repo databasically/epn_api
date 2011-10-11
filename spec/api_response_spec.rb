@@ -1,42 +1,52 @@
 
 describe "API Response" do
   
-  it "should be in the correct format" do
+  pending "should be in the correct format" do
     response_xml = Factory.build(:response)
     response_xml.format_check?.should be_true
   end
   
-  it "should not be in an incorrect format" do
+  pending "should not be in an incorrect format" do
     response_xml = "4"
     response_xml.format_check?.should be_false
   end
   
-  it "should parse response XML to ruby hash" do
+  pending "should parse response XML to paper object" do
     response_xml = Factory.build(:response)
-    response = response_xml.to_ruby
+    response = response_xml.to_paper_type
     response.should be_valid
   end
   
   
-  it "should check for data change against database" do
-    existing_data = Factory.build(:paper_info)
+  pending "should check for same data against database" do
+    existing_paper_type = Factory.build(:paper_type)
     response_xml = Factory.build(:response)
-    response = response_xml.to_ruby
+    response = response_xml.to_paper_type
     response.changed?.should be_false
   end
 
-  it "should check for data change against database" do
-    existing_data = Factory.build(:paper_info)
-    response_xml = Factory.build(:response, :wood_use.value => 18 )
-    response = response_xml.to_ruby
+  pending "should check for changed data against database" do
+    existing_paper_type = Factory.build(:paper_type)
+    response_xml = Factory.build(:response, :trees.value = 18 )
+    response = response_xml.to_paper_type
     response.changed?.should be_true
+  end
+  
+  pending "should update the database" do
+    existing_paper_type = Factory.build(:paper_type)
+    existing_paper_type.trees.value.should != 18
+    response_xml = Factory.build(:response, :trees.value = 18 )
+    response = response_xml.to_paper_type
+    response.update_data
+    existing_paper_type.trees.value.should == 18
+    
   end
   
   # not sure how to test this
   pending "should send notification if changed" do
-     existing_data = Factory.build(:paper_info)
+     existing_paper_type = Factory.build(:paper_type)
      response_xml = Factory.build(:response)
-     response = response_xml.to_ruby
+     response = response_xml.to_paper_type
      response.send.should be_sent
    end
 end

@@ -12,7 +12,5 @@ describe "Api Request" do
     request_doc.should be_valid
   end
   
-  it
-
 end
 
