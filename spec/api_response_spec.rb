@@ -13,8 +13,22 @@ describe "API Response" do
   
   it "should parse response XML to ruby hash" do
     response_xml = Factory.build(:response)
-    response_hash = response_xml.to_ruby
-    response_hash.should be_valid
+    response = response_xml.to_ruby
+    response.should be_valid
   end
   
+  
+  it "should check for data change against database" do
+    existing_data = Factory.build(:paper_info)
+    response_xml = Factory.build(:response)
+    response = response_xml.to_ruby
+    response.changed?.should be false
+  end
+
+  it "should check for data change against database" do
+    existing_data = Factory.build(:paper_info)
+    response_xml = Factory.build(:response, :wood_use.value => 18 )
+    response = response_xml.to_ruby
+    response.changed?.should be true
+  end
 end
