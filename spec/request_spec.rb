@@ -1,13 +1,14 @@
 describe "Api Request" do
 
   it "should build the request document" do
-    request_hash = Factory.build(:request)
-    request_hash.should be_valid
+    fact_request = Factory.build(:request)
+    built_request = request.build(1, 20)
+    built_request.should == fact_request
   end
   
   it "should convert to XML" do
-    request_hash = Factory.build(:request)
-    request_doc = request_hash.to_xml
+    request = Factory.build(:request)
+    request_doc = request.to_epn_xml
     request_doc.should be_valid
   end
   

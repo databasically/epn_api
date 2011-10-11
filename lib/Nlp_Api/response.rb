@@ -1,4 +1,4 @@
-module PaperType
+module Nlp_Api
   module Response
     
     
