@@ -22,13 +22,21 @@ describe "API Response" do
     existing_data = Factory.build(:paper_info)
     response_xml = Factory.build(:response)
     response = response_xml.to_ruby
-    response.changed?.should be false
+    response.changed?.should be_false
   end
 
   it "should check for data change against database" do
     existing_data = Factory.build(:paper_info)
     response_xml = Factory.build(:response, :wood_use.value => 18 )
     response = response_xml.to_ruby
-    response.changed?.should be true
+    response.changed?.should be_true
   end
+  
+  # not sure how to test this
+  pending "should send notification if changed" do
+     existing_data = Factory.build(:paper_info)
+     response_xml = Factory.build(:response)
+     response = response_xml.to_ruby
+     response.send.should be_sent
+   end
 end
