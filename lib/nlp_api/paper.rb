@@ -33,6 +33,23 @@ module NlpApi
       }
     end
     
+    def to_epn_xml
+      builder = Nokogiri::XML::Builder.new do |xml|
+        xml.papers('client' => "1E1SLaUlfvOKO3q5MLC01x4Ap6M") do
+          xml.group('id' => '0', 'name' => "default") do
+            xml.paper('name' => 'PaperApi') do
+              xml.grade_ self.grade
+              xml.name_ self.name
+              xml.annualqp_ self.annualqp['amount']
+              xml.qpunits('value' => "#{self.annualqp["qpunits"]}")
+              xml.recycledcontent_ self.recycledcontent
+            end
+          end
+        end
+      end
+      puts builder.to_xml
+    end
+    
     
   end
 end
