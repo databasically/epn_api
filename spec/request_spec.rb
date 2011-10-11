@@ -1,6 +1,5 @@
-
-
 describe "Api Request" do
+
   it "should build the request document" do
     request_hash = Factory.build(:request)
     request_hash.should be_valid

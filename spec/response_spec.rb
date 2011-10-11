@@ -39,7 +39,6 @@ describe "API Response" do
     response = response_xml.to_paper_type
     response.update_data
     existing_paper_type.trees.value.should == 18
-    
   end
   
   # not sure how to test this
@@ -49,4 +48,5 @@ describe "API Response" do
      response = response_xml.to_paper_type
      response.send.should be_sent
    end
+   
 end
