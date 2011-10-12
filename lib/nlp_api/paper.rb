@@ -1,22 +1,21 @@
 module NlpApi
   class Paper
-    attr_accessor :grade, :name, :annualqp, :recycledcontent
+    attr_accessor :grade, :name, :annualqp, :recycledcontent, :trees, :water, :energy, :solid_waste, :greenhouse_gas
     
     def initialize(paper_id, recycled_percent)
       self.grade = paper_id
       self.name = get_name( paper_id )
-      self.annualqp= {"amount" => 100, "qpunits" => "tons"}
+      self.annualqp= {"amount" => 10, "qpunits" => "tons"}
       self.recycledcontent = recycled_percent
     end
     
     def get_name(paper_id)
-      #@paper_name_search_hash[paper_id] ||= initialize_paper_hash
-      paper_name_search_hash = initialize_paper_hash
-      paper_name_search_hash[paper_id]
+      paper_name_hash = self.initialize_paper_hash
+      paper_name_hash[paper_id]
     end
     
     def initialize_paper_hash
-      paper_name_search_hash = {
+      paper_name_hash = {
         1  =>  "Uncoated Freesheet (e.g. copy paper)"        ,
         2  =>  "Coated Freesheet (e.g. high-end catalog)"    ,
         3  =>  "Uncoated Groundwood (e.g. newsprint)"        ,
@@ -50,6 +49,10 @@ module NlpApi
       builder.to_xml
     end
     
+    def from_epn_xml(return_doc)
+      return_xml = Nokogiri::XML( return_doc)
+      
+    end
     
   end
 end

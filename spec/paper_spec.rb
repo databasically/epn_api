@@ -17,26 +17,12 @@ describe "Paper " do
     paper = NlpApi::Paper.new(1,30)
     paper.grade.should == 1
     (!(paper.name =~ /Uncoated Freesheet/).nil?).should be_true
-    paper.annualqp.should == {"amount" => 100, "qpunits" => "tons"}
+    paper.annualqp.should == {"amount" => 10, "qpunits" => "tons"}
     paper.recycledcontent.should == 30
   end
   
   it "should convert to XML doc" do
-    # sample =
-    # '<?xml version="1.0"?>
-    # <papers client="1E1SLaUlfvOKO3q5MLC01x4Ap6M">
-    #   <group id="0" name="default">
-    #     <paper name="PaperApi">
-    #       <grade>1</grade>
-    #       <name>Uncoated Freesheet (e.g. copy paper)</name>
-    #       <annualqp>100</annualqp>
-    #       <qpunits value="tons" />
-    #       <recycledcontent>30</recycledcontent>
-    #     </paper>
-    #   </group>
-    # </papers>'
-    
-    f = File.open("sample.xml")
+    f = File.open("./spec/samples/request.xml")
     sample_doc = Nokogiri::XML(f)
     f.close
     
