@@ -1,22 +1,8 @@
 require 'spec_helper'
 
-describe "Api Response" do
-  
-  pending "should be in the correct format" do
-    response_xml = Factory.build(:response)
-    response_xml.format_check?.should be_true
-  end
-  
-  pending "should not be in an incorrect format" do
-    response_xml = "4"
-    response_xml.format_check?.should be_false
-  end
-  
-  pending "should parse response XML to paper object" do
-    response_xml = Factory.build(:response)
-    response = response_xml.to_paper_type
-    response.should be_valid
-  end
+describe "Paper Checker" do
+
+
   
   
   pending "should check for same data against database" do

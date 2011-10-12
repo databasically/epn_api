@@ -1,16 +1,9 @@
 <papers client="1E1SLaUlfvOKO3q5MLC01x4Ap6M">
   <group id="0" name="default">
-    <paper name="TEST PAPER">
+    <paper name="PaperApi">
       <grade>5</grade>
-      <name>SuperCalendared</name>
-      <annualqp>10</annualqp>
-      <qpunits value="tons" />
-      <recycledcontent>30</recycledcontent>
-    </paper>
-    <paper name="TEST PAPER 2">
-      <grade>5</grade>
-      <name>SuperCalendared</name>
-      <annualqp>10</annualqp>
+      <name>Supercalendered (e.g. newspaper inserts)</name>
+      <annualqp>100</annualqp>
       <qpunits value="tons" />
       <recycledcontent>30</recycledcontent>
     </paper>
