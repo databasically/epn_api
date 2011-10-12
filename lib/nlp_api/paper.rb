@@ -1,5 +1,7 @@
 module NlpApi
   class Paper
+    include Api
+    
     attr_accessor :grade, :name, :annualqp, :recycledcontent, :trees, :water, :energy, :solid_waste, :greenhouse_gas
     
     def initialize(paper_id, recycled_percent)
@@ -52,6 +54,39 @@ module NlpApi
     def from_epn_xml(return_doc)
       return_xml = Nokogiri::XML( return_doc)
       
+    end
+    
+    def self.response(response_doc)
+      self.response_to_hash(response_doc)
+
+    end
+    
+    def self.response_to_hash(response_doc)
+      response = Hash.new
+      doc = Nokogiri::HTML(response_doc)
+      doc.xpath('//paper/grade').each do |node|
+        response["grade"] = node.text.strip
+      end
+      doc.xpath('//paper/name').each do |node|
+        response["name"] = node.text.strip
+      end
+      doc.xpath('//paper/annualqp').each do |node|
+        response["annualqp"] ||= {}
+        response["annualqp"]["amount"] = node.text.strip
+      end
+      doc.xpath('//paper/qpunits').each do |node|
+        response["annualqp"] ||= {}
+        response["annualqp"]["qpunits"] = node.attributes['value'].value.strip
+      end
+      doc.xpath('//paper/recycledcontent').each do |node|
+        response["recycledcontent"] = node.text.strip
+      end
+      doc.xpath('//eparam').each do |node|
+        response["#{node.xpath('name').text.strip}"] ||= {}
+        response["#{node.xpath('name').text.strip}"]['unit'] = node.xpath('unit').text.strip
+        response["#{node.xpath('name').text.strip}"]['value'] = node.xpath('value').text.strip
+      end
+      response
     end
     
   end

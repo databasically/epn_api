@@ -23,17 +23,24 @@ describe "Paper " do
   
   it "should convert to XML doc" do
     f = File.open("./spec/samples/request.xml")
-    sample_doc = Nokogiri::XML(f)
+    request_doc = Nokogiri::XML(f)
     f.close
     
     paper_doc = NlpApi::Paper.new(5,30).to_epn_xml
-    paper_doc.should == "#{sample_doc}"
+    paper_doc.should == "#{request_doc}"
   end
   
-  pending "should parse response XML to paper object" do
-    response_xml = Factory.build(:response)
-    response = response_xml.to_paper_type
-    response.should be_valid
+  it "should parse response XML to a hash" do
+    sample = {"grade"=>"5", "name"=>"Supercalendered", "annualqp"=>{"amount"=>"10", "qpunits"=>"tons"}, "recycledcontent"=>"30", "bod"=>{"unit"=>"pounds", "value"=>"65"}, "cod"=>{"unit"=>"pounds", "value"=>"139"}, "greenhouse_gas"=>{"unit"=>"pounds CO2 equiv.", "value"=>"59227"}, "hap"=>{"unit"=>"pounds", "value"=>"20"}, "nox"=>{"unit"=>"pounds", "value"=>"104"}, "particulates"=>{"unit"=>"pounds", "value"=>"48"}, "purchased_energy"=>{"unit"=>"million BTU's", "value"=>"256"}, "solid_waste"=>{"unit"=>"pounds", "value"=>"18604"}, "so2"=>{"unit"=>"pounds", "value"=>"293"}, "net_energy"=>{"unit"=>"million BTU's", "value"=>"299"}, "trs"=>{"unit"=>"pounds", "value"=>"3"}, "tss"=>{"unit"=>"pounds", "value"=>"103"}, "voc"=>{"unit"=>"pounds", "value"=>"20"}, "wastewater"=>{"unit"=>"gallons", "value"=>"126569"}, "wood_use"=>{"unit"=>"tons", "value"=>"19"}}
+    
+    f = File.open("./spec/samples/response.xml")
+    response_hash = NlpApi::Paper.response(f)
+    
+    response_hash.should == sample
+  end
+  
+  pending "should update the paper object" do
+    
   end
   
 end
