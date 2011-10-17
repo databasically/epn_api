@@ -45,11 +45,9 @@ module EpnApi
       end
       doc.xpath('//eparam').each do |node|
         node_name = node.xpath('name').text.strip
-        self.send(node_name + '=', node_name)        
-        # self.send(node_name + '=', "||=", "{}")
-        # self.send(node_name)['unit'] = node.xpath('unit').text.strip
-        # self.send(node_name)['value'] = node.xpath('value').text.strip
-        p self.node_name
+
+        hash = {"unit" => node.xpath('unit').text.strip, "value" => node.xpath('value').text.strip}
+        self.send("#{node_name}=", hash)
       end
       nil
     end
