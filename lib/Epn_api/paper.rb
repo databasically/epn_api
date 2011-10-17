@@ -10,9 +10,9 @@ module EpnApi
       self.annualqp= {"amount" => 10, "qpunits" => "tons"}   
     end
     
-    def get_name(paper_id)
+    def get_name(grade)
       paper_name_hash = self.initialize_paper_hash
-      paper_name_hash[paper_id]
+      paper_name_hash[grade]
     end
     
     def initialize_paper_hash
