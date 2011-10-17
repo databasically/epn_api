@@ -21,7 +21,7 @@ describe "Api_Doc" do
     
     response_doc = File.open("./spec/samples/response.xml")
     api_doc = EpnApi::ApiDoc.new
-    api_doc.to_apidoc( response_doc )
+    api_doc.from_epn_api( response_doc )
     
     api_doc.should == sample
   end

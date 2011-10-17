@@ -7,11 +7,6 @@ module EpnApi
                   :tss, :voc, :wastewater, :wood_use
     
     
-    
-    def initialize
-      
-    end
-    
     def to_epn_xml( paper )
       builder = Nokogiri::XML::Builder.new do |xml|
         xml.papers('client' => "1E1SLaUlfvOKO3q5MLC01x4Ap6M") do
@@ -29,7 +24,7 @@ module EpnApi
       builder.to_xml
     end
 
-    def to_apidoc(response_doc)
+    def from_epn_api(response_doc)
       doc = Nokogiri::HTML(response_doc)
       doc.xpath('//paper/grade').each do |node|
         self.grade= node.text.strip
@@ -49,9 +44,12 @@ module EpnApi
         self.recycledcontent = node.text.strip
       end
       doc.xpath('//eparam').each do |node|
-        "@#{node.xpath('name').text.strip}" ||= {}
-        "@#{node.xpath('name').text.strip}"['unit'] = node.xpath('unit').text.strip
-        "@#{node.xpath('name').text.strip}"['value'] = node.xpath('value').text.strip
+        node_name = node.xpath('name').text.strip
+        self.send(node_name + '=', node_name)        
+        # self.send(node_name + '=', "||=", "{}")
+        # self.send(node_name)['unit'] = node.xpath('unit').text.strip
+        # self.send(node_name)['value'] = node.xpath('value').text.strip
+        p self.node_name
       end
       nil
     end
