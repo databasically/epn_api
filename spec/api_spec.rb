@@ -2,12 +2,17 @@ require 'spec_helper'
 
 describe "Api Transaction" do
 
-  # pending "should build the correct URI" do
-  # end
-  # 
-  # pending "send the request" do
-  # end
-  # 
+  it "should build the correct URI" do
+    test_uri = "http://calculator.environmentalpaper.org/v0/xml"
+    puts "trying to get the uri"
+    ApiDoc = EpnApi::ApiDoc.new
+    ApiDoc.uri_builder.should == "http://calculator.environmentalpaper.org/v0/xml"
+  end
+
+  it "send the request" do
+    
+  end
+
   # pending "should check for error codes" do
   # end
   # 
