@@ -4,7 +4,6 @@ describe "Api Transaction" do
 
   it "should build the correct URI" do
     test_uri = "http://calculator.environmentalpaper.org/v0/xml"
-    puts "trying to get the uri"
     ApiDoc = EpnApi::ApiDoc.new
     ApiDoc.uri_builder.should == "http://calculator.environmentalpaper.org/v0/xml"
   end

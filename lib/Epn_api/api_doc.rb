@@ -10,7 +10,7 @@ module EpnApi
     
     def to_epn_xml( paper )
       builder = Nokogiri::XML::Builder.new do |xml|
-        xml.papers('client' => "1E1SLaUlfvOKO3q5MLC01x4Ap6M") do
+        xml.papers('client' => self.get_api_code) do
           xml.group('id' => '0', 'name' => "default") do
             xml.paper('name' => 'PaperApi') do
               xml.grade_ paper.grade
@@ -23,6 +23,14 @@ module EpnApi
         end
       end
       builder.to_xml
+    end
+    
+    def get_api_code
+      api_code = ''
+      File.open("./api_code", "r") { |f|
+          api_code = f.read
+      }
+      return api_code
     end
 
     def from_epn_api(response_doc)

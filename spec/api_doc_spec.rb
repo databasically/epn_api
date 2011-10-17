@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe "Api_Doc" do
   
+  it "should retrieve the API_code" do
+    api_doc = EpnApi::ApiDoc.new
+    api_doc.get_api_code.should_not be_empty
+  end
+  
   it "should convert to XML doc" do
     f = File.open("./spec/samples/request.xml")
     sample_request_doc = Nokogiri::XML(f)
