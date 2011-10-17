@@ -1,14 +1,13 @@
 module EpnApi
   class Paper
-    include Api
     
     attr_accessor :grade, :name, :annualqp, :recycledcontent, :trees, :water, :energy, :solid_waste, :greenhouse_gas
     
-    def initialize(paper_id, recycled_percent)
-      self.grade = paper_id
-      self.name = get_name( paper_id )
-      self.annualqp= {"amount" => 10, "qpunits" => "tons"}
-      self.recycledcontent = recycled_percent
+    def initialize(args)
+      self.grade = args[:grade] or raise "Paper needs Grade"
+      self.recycledcontent = args[:recycled_percent] or raise "Paper needs Recycled Percent"
+      self.name = args[:name] || get_name( args[:grade] )
+      self.annualqp= {"amount" => 10, "qpunits" => "tons"}   
     end
     
     def get_name(paper_id)

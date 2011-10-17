@@ -1,6 +1,6 @@
 module EpnApi
   class ApiDoc
-    include Api
+    
     attr_accessor :grade, :name, :annualqp, :recycledcontent, 
                   :bod, :cod, :greenhouse_gas, :hap, :nox, :particulates,
                   :purchased_energy,:solid_waste, :so2, :net_energy, :trs,
