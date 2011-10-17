@@ -2,14 +2,12 @@ require 'spec_helper'
 
 describe "Api_Doc" do
   
-  pending "should convert to XML doc" do
+  it "should convert to XML doc" do
     f = File.open("./spec/samples/request.xml")
     sample_request_doc = Nokogiri::XML(f)
     f.close
     
-    paper_grade = 5
-    recycled_content = 30
-    paper_doc = EpnApi::Paper.new( paper_grade, recycled_content )
+    paper_doc = EpnApi::Paper.new(:grade => 5, :recycled_percent => 30 )
     
     api_doc = EpnApi::ApiDoc.new
     request_doc = api_doc.to_epn_xml( paper_doc )

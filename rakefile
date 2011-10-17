@@ -1,5 +1,4 @@
 #!/usr/bin/env rake
-# require 'rake'
 
 
 require 'bundler'
