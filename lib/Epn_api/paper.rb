@@ -38,7 +38,8 @@ module EpnApi
     
     def compare(existing_paper)
       # puts self.methods
-      p self
+      p self.to_s
+      
       self.each do |k,v|
         p "#{k} is #{v}"
       end
