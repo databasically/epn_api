@@ -33,8 +33,8 @@ module EpnApi
       return api_code
     end
 
-    def from_epn_api(response_doc)
-      doc = Nokogiri::HTML(response_doc)
+    def from_epn_api(response_body)
+      doc = Nokogiri::HTML(response_body)
       doc.xpath('//paper/grade').each do |node|
         self.grade= node.text.strip
       end
@@ -61,11 +61,23 @@ module EpnApi
       nil
     end
     
-    def response_calculations( paper )
-      response = self.to_epn_xml( paper )
-      
+    def check_epn( request_xml )
+      response = self.get_epn_response( request_xml )
+      if response.inspect =~ /200/
+        self.from_epn_api( response.body )
+      end
     end
     
+    def do_calculations!( paper )
+      p self
+    end
+    
+    def epn_response!( paper )
+      request_xml = self.to_epn_xml( paper )
+      self.check_epn( request_xml )
+      self.do_calculations!( paper )
+    end
+
 
   end
 end

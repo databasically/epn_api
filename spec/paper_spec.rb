@@ -37,4 +37,18 @@ describe "Paper " do
     lambda { EpnApi::Paper.new(:grade => 1, :recycled_percent => 30) }.should_not raise_error
   end
   
+  it "should return false if the existing and new paper values are the same" do
+    paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => , :water =>, :energy =>, :solid_waste =>, :greenhouse_gas =>) 
+    
+    
+    
+    
+    
+    
+    )
+  end
+  
+  pending "should return the new values if the existing and new paper values are the same" do
+  end
+  
 end

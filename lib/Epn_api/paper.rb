@@ -7,7 +7,9 @@ module EpnApi
       self.grade = args[:grade] or raise "Paper needs Grade"
       self.recycledcontent = args[:recycled_percent] or raise "Paper needs Recycled Percent"
       self.name = args[:name] || get_name( args[:grade] )
-      self.annualqp= {"amount" => 10, "qpunits" => "tons"}   
+      self.annualqp= {"amount" => 10, "qpunits" => "tons"}
+      %w(recycledcontent, trees, water, energy, solid_waste, greenhouse_gas).each do |column|
+        if arg[column]   
     end
     
     def get_name(grade)
@@ -33,19 +35,21 @@ module EpnApi
       }
     end
     
-    def update_database
-      #api_doc = EpnApi::ApiDoc.new
-      #return_doc = api_doc( self ).check_epn_site
-      #do some calculations to covert the api_doc to paper_doc numbers
-      #return the paper_doc in hash form
-      
+    def compare(existing_paper)
+      if existing_paper == self
+        return false
+      else
+        return self
     end
     
     def check_for_update
+      #returns an updated paper hash if the paper has been updated
+      #returns nil if the paper is the same
+      existing_paper = self.clone
       api_doc = EpnApi::ApiDoc.new
-      # if api_doc.to_epn_xml( paper ) == api_doc.response_calculations( paper )
-      #   #update paper object or return false
-      # end
+      api_doc.epn_response!( self )
+      self.compare(existing_paper)
+ 
     
     end
     

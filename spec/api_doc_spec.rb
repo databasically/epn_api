@@ -31,4 +31,6 @@ describe "Api_Doc" do
     
   end
   
+  it "should use the response to calculate the new paper values" do
+  end
 end
