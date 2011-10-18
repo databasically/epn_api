@@ -41,5 +41,13 @@ module EpnApi
       
     end
     
+    def check_for_update
+      api_doc = EpnApi::ApiDoc.new
+      # if api_doc.to_epn_xml( paper ) == api_doc.response_calculations( paper )
+      #   #update paper object or return false
+      # end
+    
+    end
+    
   end
 end

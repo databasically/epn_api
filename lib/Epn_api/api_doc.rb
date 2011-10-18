@@ -61,6 +61,11 @@ module EpnApi
       nil
     end
     
+    def response_calculations( paper )
+      response = self.to_epn_xml( paper )
+      
+    end
+    
 
   end
 end

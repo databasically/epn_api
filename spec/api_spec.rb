@@ -5,6 +5,7 @@ describe "Api Transaction" do
   it "should build the correct URI" do
     test_uri = "http://calculator.environmentalpaper.org/v0/xml"
     api_doc = EpnApi::ApiDoc.new
+    
     api_doc.uri_builder.should be_an_instance_of(URI::HTTP)
   end
 
@@ -15,6 +16,7 @@ describe "Api Transaction" do
     
     stub_request(:get, "http://calculator.environmentalpaper.org/v0/xml").to_return(:body => request_xml)
     
-    return_doc = api_doc.get_epn_response    
+    return_doc = api_doc.get_epn_response( request_xml )
+    return_doc.should be_a(String)   
   end
 end
