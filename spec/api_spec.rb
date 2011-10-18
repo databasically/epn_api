@@ -5,7 +5,7 @@ describe "Api Transaction" do
   it "should build the correct URI" do
     test_uri = "http://calculator.environmentalpaper.org/v0/xml"
     api_doc = EpnApi::ApiDoc.new
-    
+  
     api_doc.uri_builder.should be_an_instance_of(URI::HTTP)
   end
 

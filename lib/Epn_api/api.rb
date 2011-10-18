@@ -3,8 +3,7 @@ module EpnApi
     
     
     def uri_builder
-      uri = "http://calculator.environmentalpaper.org/v0/xml"
-      return URI.parse(uri)
+      return URI.parse("http://calculator.environmentalpaper.org/v0/xml")
     end
     
     def get_epn_response( request_doc )

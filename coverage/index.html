@@ -23,26 +23,26 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-18T11:36:05-05:00">2011-10-18T11:36:05-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-18T13:20:39-05:00">2011-10-18T13:20:39-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.17%</span></span>
+    (<span class="covered_percent"><span class="green">98.13%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.71
+         1.66
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>109</b> relevant lines. 
-    <span class="green"><b>107</b> lines covered</span> and
+    <b>107</b> relevant lines. 
+    <span class="green"><b>105</b> lines covered</span> and
     <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -72,11 +72,11 @@
       <tr>
         <td class="strong"><a href="#5e7ed5f3e6cd2172800fc44b31c045f9ec7a8ac0" class="src_link" title="lib/epn_api/api.rb">lib/epn_api/api.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>18</td>
-        <td>8</td>
-        <td>8</td>
+        <td>17</td>
+        <td>7</td>
+        <td>7</td>
         <td>0</td>
-        <td>1.5</td>
+        <td>1.1</td>
       </tr>
       
       <tr>
@@ -103,8 +103,8 @@
         <td class="strong"><a href="#1620834b9a50e1ed6174e38b761d707eb12bd55d" class="src_link" title="spec/api_spec.rb">spec/api_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>22</td>
-        <td>14</td>
-        <td>14</td>
+        <td>13</td>
+        <td>13</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -240,8 +240,8 @@
     <h3>lib/epn_api/api.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>7</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -279,58 +279,58 @@
           <code class="ruby">    def uri_builder</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="6">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="2" data-linenumber="6">
+          <span class="hits">2</span>
           
-          <code class="ruby">      uri = &quot;http://calculator.environmentalpaper.org/v0/xml&quot;</code>
+          <code class="ruby">      return URI.parse(&quot;http://calculator.environmentalpaper.org/v0/xml&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="7">
-          <span class="hits">3</span>
+        <li class="never" data-hits="" data-linenumber="7">
           
-          <code class="ruby">      return URI.parse(uri)</code>
+          
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="9">
-          
-          
           <code class="ruby">    </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">    def get_epn_response( request_doc )</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
           <code class="ruby">      path = self.uri_builder</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
           <code class="ruby">      Net::HTTP.get( path )</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">    </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
@@ -342,16 +342,10 @@
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="17">
-          
-          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">end</code>
@@ -1146,8 +1140,8 @@
     <h3>spec/api_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>13</b> relevant lines. 
+      <span class="green"><b>13</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1197,10 +1191,10 @@
           <code class="ruby">    api_doc = EpnApi::ApiDoc.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="8">
           
-          <code class="ruby">    p api_doc.uri_builder</code>
+          
+          <code class="ruby">  </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
