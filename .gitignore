@@ -1,3 +1,24 @@
+# App Specific #
+################
+API_code
+
+# Ruby Specific #
+#################
+*.gem
+*.rbc
+.bundle
+.config
+coverage/index.html
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp 
+
 # Compiled source #
 ###################
 *.com
@@ -32,23 +53,3 @@
 ehthumbs.db
 Icon?
 Thumbs.db
-
-# Ruby Specific #
-#################
-*.gem
-*.rbc
-.bundle
-.config
-coverage/
-InstalledFiles
-lib/bundler/man
-pkg
-rdoc
-spec/reports
-test/tmp
-test/version_tmp
-tmp 
-
-# App Specific #
-################
-API_code
