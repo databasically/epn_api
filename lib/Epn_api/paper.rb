@@ -8,8 +8,9 @@ module EpnApi
       self.recycledcontent = args[:recycled_percent] or raise "Paper needs Recycled Percent"
       self.name = args[:name] || get_name( args[:grade] )
       self.annualqp= {"amount" => 10, "qpunits" => "tons"}
-      %w(recycledcontent, trees, water, energy, solid_waste, greenhouse_gas).each do |column|
-        if arg[column]   
+      %w(trees water energy solid_waste greenhouse_gas).each do |column|
+        self.send("#{column}=", args[column.to_sym]) if args[column.to_sym]
+      end   
     end
     
     def get_name(grade)
@@ -36,16 +37,24 @@ module EpnApi
     end
     
     def compare(existing_paper)
-      if existing_paper == self
+      # puts self.methods
+      p self
+      self.each do |k,v|
+        p "#{k} is #{v}"
+      end
+      if (self == existing_paper)
+        p 'yes'
         return false
       else
+        p 'no'
         return self
+      end
     end
     
     def check_for_update
       #returns an updated paper hash if the paper has been updated
       #returns nil if the paper is the same
-      existing_paper = self.clone
+      existing_paper = self.dup
       api_doc = EpnApi::ApiDoc.new
       api_doc.epn_response!( self )
       self.compare(existing_paper)

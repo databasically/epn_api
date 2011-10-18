@@ -13,12 +13,18 @@ describe "Paper " do
     (paper3.name =~ /CUK/).should be_true
   end
   
-  it "should initialize fully when given a grade and recycled content" do
+  it "should initialize when given a grade and recycled content" do
     paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30)
     paper.grade.should == 1
     (paper.name =~ /Uncoated Freesheet/).should be_true
     paper.annualqp.should == {"amount" => 10, "qpunits" => "tons"}
     paper.recycledcontent.should == 30
+  end
+  
+  it "should initialize when given a grade and recycled content and other fields" do
+    paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => 1, :water => 1, :energy => 1, :solid_waste => 1, :greenhouse_gas => 1) 
+    paper.energy.should == 1
+    paper.greenhouse_gas == 1
   end
   
   it "should raise an exception if no arguement is provided" do
@@ -38,17 +44,15 @@ describe "Paper " do
   end
   
   it "should return false if the existing and new paper values are the same" do
-    paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => , :water =>, :energy =>, :solid_waste =>, :greenhouse_gas =>) 
-    
-    
-    
-    
-    
-    
-    )
+    paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => 1, :water => 1, :energy => 1, :solid_waste => 1, :greenhouse_gas => 1) 
+    existing_paper = paper.clone
+    paper.compare(existing_paper).should be_false
   end
   
-  pending "should return the new values if the existing and new paper values are the same" do
+  it "should return the new values if the existing and new paper values are the same" do
+    paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => 1, :water => 1, :energy => 1, :solid_waste => 1, :greenhouse_gas => 1) 
+    existing_paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => 2, :water => 1, :energy => 1, :solid_waste => 1, :greenhouse_gas => 1) 
+    paper.compare(existing_paper).should_not be_false
   end
   
 end
