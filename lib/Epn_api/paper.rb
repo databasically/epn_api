@@ -33,5 +33,13 @@ module EpnApi
       }
     end
     
+    def update_database
+      #api_doc = EpnApi::ApiDoc.new
+      #return_doc = api_doc( self ).check_epn_site
+      #do some calculations to covert the api_doc to paper_doc numbers
+      #return the paper_doc in hash form
+      
+    end
+    
   end
 end
