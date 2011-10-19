@@ -14,7 +14,7 @@
     <link href='./assets/0.5.3/highlight.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
     <link href='./assets/0.5.3/fancybox/jquery.fancybox-1.3.1.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
     <link href='./assets/0.5.3/smoothness/jquery-ui-1.8.4.custom.css' media='screen, projection, print' rel='stylesheet' type='text/css'>    
-    <link rel="shortcut icon" type="image/png" href="./assets/0.5.3/favicon_red.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.5.3/favicon_yellow.png" />
     <link rel="icon" type="image/png" href="./assets/0.5.3/favicon.png" />
   </head>
   
@@ -23,27 +23,27 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-18T18:05:29-05:00">2011-10-18T18:05:29-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-19T11:25:09-05:00">2011-10-19T11:25:09-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">77.46%</span></span>
+    (<span class="covered_percent"><span class="yellow">81.25%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.89
+         1.9
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>173</b> relevant lines. 
-    <span class="green"><b>134</b> lines covered</span> and
-    <span class="red"><b>39</b> lines missed </span>
+    <b>176</b> relevant lines. 
+    <span class="green"><b>143</b> lines covered</span> and
+    <span class="red"><b>33</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -91,12 +91,12 @@
       
       <tr>
         <td class="strong"><a href="#af8f6ca05f591e69a3194a3642a4b0b7f8d1d114" class="src_link" title="lib/epn_api/paper.rb">lib/epn_api/paper.rb</a></td>
-        <td class="red strong">65.52 %</td>
-        <td>66</td>
-        <td>29</td>
-        <td>19</td>
-        <td>10</td>
-        <td>5.9</td>
+        <td class="yellow strong">87.5 %</td>
+        <td>73</td>
+        <td>32</td>
+        <td>28</td>
+        <td>4</td>
+        <td>6.0</td>
       </tr>
       
       <tr>
@@ -940,11 +940,11 @@
         <div class="source_table" id="af8f6ca05f591e69a3194a3642a4b0b7f8d1d114">
   <div class="header">
     <h3>lib/epn_api/paper.rb</h3>
-    <h4><span class="red">65.52 %</span> covered</h4>
+    <h4><span class="yellow">87.5 %</span> covered</h4>
     <div>
-      <b>29</b> relevant lines. 
-      <span class="green"><b>19</b> lines covered</span> and
-      <span class="red"><b>10</b> lines missed.</span>
+      <b>32</b> relevant lines. 
+      <span class="green"><b>28</b> lines covered</span> and
+      <span class="red"><b>4</b> lines missed.</span>
     </div>
   </div>
   
@@ -1182,166 +1182,208 @@
         <li class="covered" data-hits="1" data-linenumber="39">
           <span class="hits">1</span>
           
-          <code class="ruby">    def compare(existing_paper)</code>
+          <code class="ruby">    def object_id_strip_to_string( paper )</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="covered" data-hits="4" data-linenumber="40">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby">      # puts self.methods</code>
+          <code class="ruby">      new_paper_string = paper.inspect.to_s</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="41">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="41">
+          <span class="hits">4</span>
           
-          <code class="ruby">      p self</code>
+          <code class="ruby">      new_paper_id = paper.extract_id</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="42">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="42">
+          <span class="hits">4</span>
           
-          <code class="ruby">      self.each do |k,v|</code>
+          <code class="ruby">      new_paper_string.gsub( new_paper_id, '' )</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">        p &quot;#{k} is #{v}&quot;</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">    </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      if (self == existing_paper)</code>
+          <code class="ruby">    def extract_id</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
+        <li class="covered" data-hits="4" data-linenumber="46">
+          <span class="hits">4</span>
           
-          
-          <code class="ruby">        p 'yes'</code>
+          <code class="ruby">      self.to_s[2..-2]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
-          <code class="ruby">        return false</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="48">
           
           
-          <code class="ruby">      else</code>
+          <code class="ruby">    </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        p 'no'</code>
+          <code class="ruby">    def compare(existing_paper)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby">        return self</code>
+          <code class="ruby">      # puts self.methods</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="51">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby"> </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="covered" data-hits="2" data-linenumber="52">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    end</code>
+          <code class="ruby">      new_paper_string = object_id_strip_to_string( self )</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="covered" data-hits="2" data-linenumber="53">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">    </code>
+          <code class="ruby">      existing_paper_string = object_id_strip_to_string( existing_paper )</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="54">
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      if (new_paper_string == existing_paper_string)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">    def check_for_update</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
-          
-          
-          <code class="ruby">      #returns an updated paper hash if the paper has been updated</code>
+          <code class="ruby">        return false</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
-          <code class="ruby">      #returns nil if the paper is the same</code>
+          <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      existing_paper = self.dup</code>
+          <code class="ruby">        return self</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="58">
           
           
-          <code class="ruby">      api_doc = EpnApi::ApiDoc.new</code>
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="59">
-          
-          
-          <code class="ruby">      api_doc.epn_response!( self )</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="60">
-          
-          
-          <code class="ruby">      self.compare(existing_paper)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby"> </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby">    </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
+        <li class="covered" data-hits="1" data-linenumber="61">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def check_for_update</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">      #returns an updated paper hash if the paper has been updated</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">      #returns nil if the paper is the same</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="64">
+          
+          
+          <code class="ruby">      existing_paper = self.dup</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="65">
+          
+          
+          <code class="ruby">      api_doc = EpnApi::ApiDoc.new</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="66">
+          
+          
+          <code class="ruby">      api_doc.epn_response!( self )</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="67">
+          
+          
+          <code class="ruby">      self.compare(existing_paper)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby"> </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby">end</code>

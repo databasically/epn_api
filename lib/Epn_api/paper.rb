@@ -36,18 +36,22 @@ module EpnApi
       }
     end
     
+    def object_id_strip_to_string( paper )
+      new_paper_string = paper.inspect.to_s
+      new_paper_id = paper.extract_id
+      new_paper_string.gsub( new_paper_id, '' )
+    end
+    
+    def extract_id
+      self.to_s[2..-2]
+    end
+    
     def compare(existing_paper)
-      # puts self.methods
-      p self.to_s
-      
-      self.each do |k,v|
-        p "#{k} is #{v}"
-      end
-      if (self == existing_paper)
-        p 'yes'
+      new_paper_string = object_id_strip_to_string( self )
+      existing_paper_string = object_id_strip_to_string( existing_paper )
+      if (new_paper_string == existing_paper_string)
         return false
       else
-        p 'no'
         return self
       end
     end
@@ -59,8 +63,6 @@ module EpnApi
       api_doc = EpnApi::ApiDoc.new
       api_doc.epn_response!( self )
       self.compare(existing_paper)
- 
-    
     end
     
   end
