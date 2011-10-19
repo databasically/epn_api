@@ -8,9 +8,9 @@
         Supercalendered
       </name>
       <annualqp>
-        10
+        100000
       </annualqp>
-      <qpunits value="tons" />
+      <qpunits value="pounds" />
       <recycledcontent>
         30
       </recycledcontent>

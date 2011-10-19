@@ -8,6 +8,8 @@ module EpnApi
                   :tss, :voc, :wastewater, :wood_use
     
     
+    TREES_PER_TON_OF_WOOD_USE = 6.93
+    
     def to_epn_xml( paper )
       builder = Nokogiri::XML::Builder.new do |xml|
         xml.papers('client' => self.get_api_code) do
@@ -68,14 +70,23 @@ module EpnApi
       end
     end
     
-    def do_calculations!( paper )
-      p self
+    def do_conversions!( paper )
+      #these calculation only work if the unit is 100000 pounds
+      unit = paper.unit_check
+      
+      paper.trees = ((self.wood_use["value"].to_f/unit) * TREES_PER_TON_OF_WOOD_USE)
+      paper.water = (self.wastewater["value"].to_f/unit)
+      paper.energy = (self.net_energy["value"].to_f/unit)
+      paper.solid_waste = (self.solid_waste["value"].to_f/unit)
+      paper.greenhouse_gas = (self.greenhouse_gas["value"].to_f/unit)
+      return nil
     end
     
     def epn_response!( paper )
       request_xml = self.to_epn_xml( paper )
       self.check_epn( request_xml )
-      self.do_calculations!( paper )
+      self.do_conversions!( paper )
+      return paper
     end
 
 

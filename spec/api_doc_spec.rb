@@ -31,6 +31,15 @@ describe "Api_Doc" do
     
   end
   
-  it "should use the response to calculate the new paper values" do
+  it "should convert to per pounds of paper" do
+    paper = EpnApi::Paper.new(:grade => 5, :recycled_percent => 30, :trees => 1, :water => 1, :energy => 1, :solid_waste => 1, :greenhouse_gas => 1)
+    response_xml = File.open("./spec/samples/response.xml")
+    api_doc = EpnApi::ApiDoc.new
+    api_doc.from_epn_api( response_xml )
+    
+    api_doc.do_conversions!( paper )
+    paper.greenhouse_gas.should == 0.59227
+    
+    
   end
 end

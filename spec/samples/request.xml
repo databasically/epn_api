@@ -3,8 +3,8 @@
     <paper name="PaperApi">
       <grade>5</grade>
       <name>Supercalendered (e.g. newspaper inserts)</name>
-      <annualqp>10</annualqp>
-      <qpunits value="tons" />
+      <annualqp>100000</annualqp>
+      <qpunits value="pounds" />
       <recycledcontent>30</recycledcontent>
     </paper>
   </group>
