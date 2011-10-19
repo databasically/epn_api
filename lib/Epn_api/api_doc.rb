@@ -79,6 +79,7 @@ module EpnApi
       paper.energy = (self.net_energy["value"].to_f/unit)
       paper.solid_waste = (self.solid_waste["value"].to_f/unit)
       paper.greenhouse_gas = (self.greenhouse_gas["value"].to_f/unit)
+      paper.annualqp["amount"] = (paper.annualqp["amount"]/unit)
       return nil
     end
     

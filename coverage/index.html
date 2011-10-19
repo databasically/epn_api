@@ -23,7 +23,7 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-19T15:42:57-05:00">2011-10-19T15:42:57-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-19T16:01:36-05:00">2011-10-19T16:01:36-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -41,8 +41,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>6</b> files in total.
-    <b>155</b> relevant lines. 
-    <span class="green"><b>155</b> lines covered</span> and
+    <b>156</b> relevant lines. 
+    <span class="green"><b>156</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -82,9 +82,9 @@
       <tr>
         <td class="strong"><a href="#6aeb569c97d8b39467016ace7ceab44fd8ee64eb" class="src_link" title="lib/epn_api/api_doc.rb">lib/epn_api/api_doc.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>94</td>
-        <td>55</td>
-        <td>55</td>
+        <td>96</td>
+        <td>56</td>
+        <td>56</td>
         <td>0</td>
         <td>5.1</td>
       </tr>
@@ -416,8 +416,8 @@
     <h3>lib/epn_api/api_doc.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>55</b> relevant lines. 
-      <span class="green"><b>55</b> lines covered</span> and
+      <b>56</b> relevant lines. 
+      <span class="green"><b>56</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -911,79 +911,91 @@
           <code class="ruby">      paper.greenhouse_gas = (self.greenhouse_gas[&quot;value&quot;].to_f/unit)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="82">
+        <li class="covered" data-hits="2" data-linenumber="82">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">      return nil</code>
+          <code class="ruby">      paper.annualqp[&quot;amount&quot;] = (paper.annualqp[&quot;amount&quot;]/unit)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="83">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">      # paper.save</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
           
           
-          <code class="ruby">    </code>
+          <code class="ruby">      return nil</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="85">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    def epn_response!( paper )</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="86">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      request_xml = self.to_epn_xml( paper )</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="87">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      self.check_epn( request_xml )</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="88">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      self.do_conversions!( paper )</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="89">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      return paper</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="90">
+        <li class="never" data-hits="" data-linenumber="85">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="91">
+        <li class="never" data-hits="" data-linenumber="86">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="87">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def epn_response!( paper )</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="88">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      request_xml = self.to_epn_xml( paper )</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="89">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      self.check_epn( request_xml )</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="90">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      self.do_conversions!( paper )</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="91">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      return paper</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="92">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="93">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="94">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="96">
           
           
           <code class="ruby">end</code>
