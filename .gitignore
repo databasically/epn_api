@@ -1,6 +1,8 @@
 # App Specific #
 ################
 API_code
+coverage/.resultset.json
+coverage/index.html
 
 # Ruby Specific #
 #################
