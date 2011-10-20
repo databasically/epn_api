@@ -16,37 +16,43 @@ describe "Api Transaction" do
   it "should send the request" do
     stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Sent", :header => "200")
     
-    response_doc = @api_doc.get_epn_response( @request_xml )
+    response_doc = @api_doc.get_epn_response_doc( @request_xml )
   end
   
   it "should return a response" do
     response_xml = File.open("./spec/samples/response.xml")
     stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => response_xml, :header => "200")
     
-    response_doc = @api_doc.get_epn_response( @request_xml )
+    response_doc = @api_doc.get_epn_response_doc( @request_xml )
     response_doc.should be_an_instance_of(Net::HTTPOK)
   end
   
-  # Checking the Object, not the return status
-  # it "should catch 200 status" do
-  #   stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Sent", :header => "200")
-  # 
-  #   response_doc = @api_doc.get_epn_response( @request_xml )
-  #   (response_doc.inspect =~ /200/).should be_true
-  # end
-  # 
-  # it "should catch 400 status" do
-  #   stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Incorrect", :header => "400")
-  #   
-  #   response_doc = @api_doc.get_epn_response( @request_xml )
-  #   (response_doc =~ /400/).should be_true
-  # end
-  # 
-  # it "should catch 500 status" do
-  #   stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Error", :header => "200")
-  #   
-  #   response_doc = api_doc.get_epn_response( @request_xml )
-  #   (response_doc =~ /500/).should be_true
-  # end
+  it "should allow a 200 status to pass" do
+    stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Sent", :status => 200)
+  
+    response_doc = @api_doc.get_epn_response_doc( @request_xml )
+    @api_doc.accept_status( response_doc ).should be_true
+  end
+  
+  it "should block anything else" do
+    stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Sent", :status => 300)
+  
+    response_doc = @api_doc.get_epn_response_doc( @request_xml )
+    lambda { @api_doc.accept_status( response_doc ) }.should raise_error
+  end
+  
+  it "should catch 400 status" do
+    stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Incorrect", :status => 400)
+    
+    response_doc = @api_doc.get_epn_response_doc( @request_xml )
+    lambda { @api_doc.accept_status( response_doc ) }.should raise_error
+  end
+  
+  it "should catch 500 status" do
+    stub_request(:get, "#{@api_doc.uri_builder(@request_xml)}").to_return(:body => "Error", :status => 500)
+    
+    response_doc = @api_doc.get_epn_response_doc( @request_xml )
+    lambda { @api_doc.accept_status( response_doc ) }.should raise_error
+  end
   
 end

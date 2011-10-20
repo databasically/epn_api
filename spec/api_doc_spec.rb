@@ -40,6 +40,6 @@ describe "Api_Doc" do
     api_doc.do_conversions!( paper )
     paper.greenhouse_gas.should == 0.59227
     
-    
   end
+  
 end

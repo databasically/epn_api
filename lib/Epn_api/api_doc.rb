@@ -64,14 +64,12 @@ module EpnApi
     end
     
     def check_epn( request_xml )
-      response = self.get_epn_response( request_xml )
-      if response.inspect =~ /200/
-        self.from_epn_api( response.body )
-      end
+      response_doc = self.get_epn_response_doc( request_xml )
+      self.accept_status( response_doc )
+      self.from_epn_api( response_doc.body )
     end
     
     def do_conversions!( paper )
-      #these calculation only work if the unit is 100000 pounds
       unit = paper.unit_check
       
       paper.trees = ((self.wood_use["value"].to_f/unit) * TREES_PER_TON_OF_WOOD_USE)
