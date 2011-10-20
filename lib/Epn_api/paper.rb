@@ -65,6 +65,7 @@ module EpnApi
     def update_via_epn
       api_doc = EpnApi::ApiDoc.new
       api_doc.epn_response!( self )
+      self.to_return_hash
     end
     
     def to_return_hash
