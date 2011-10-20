@@ -43,7 +43,7 @@ describe "Paper" do
     lambda { EpnApi::Paper.new(:grade => 1, :recycled_percent => 30) }.should_not raise_error
   end
   
-  it "should return the new values" do
+  it "should retrieve the new values" do
     paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => 1, :water => 1, :energy => 1, :solid_waste => 1, :greenhouse_gas => 1) 
     existing_paper = EpnApi::Paper.new(:grade => 1, :recycled_percent => 30, :trees => 1, :water => 1, :energy => 1, :solid_waste => 1, :greenhouse_gas => 1) 
     response_xml = File.open("./spec/samples/response.xml")
@@ -51,9 +51,9 @@ describe "Paper" do
     path = "http://calculator.environmentalpaper.org/v0/xml?papers=%3C?xml%20version=%221.0%22?%3E%0A%3Cpapers%20client=%221E1SLaUlfvOKO3q5MLC01x4Ap6M%22%3E%0A%20%20%3Cgroup%20id=%220%22%20name=%22default%22%3E%0A%20%20%20%20%3Cpaper%20name=%22PaperApi%22%3E%0A%20%20%20%20%20%20%3Cgrade%3E1%3C/grade%3E%0A%20%20%20%20%20%20%3Cname%3EUncoated%20Freesheet%20(e.g.%20copy%20paper)%3C/name%3E%0A%20%20%20%20%20%20%3Cannualqp%3E100000%3C/annualqp%3E%0A%20%20%20%20%20%20%3Cqpunits%20value=%22pounds%22/%3E%0A%20%20%20%20%20%20%3Crecycledcontent%3E30%3C/recycledcontent%3E%0A%20%20%20%20%3C/paper%3E%0A%20%20%3C/group%3E%0A%3C/papers%3E%0A"
     stub_request(:get, path).to_return(:status => 200, :body => response_xml, :headers => {})
     
-    paper = paper.update_via_epn
-    paper.should be_an_instance_of(EpnApi::Paper)
-    existing_paper.energy.should_not == paper.energy
+    return_item = paper.update_via_epn
+    return_item.should be_an_instance_of(Hash)
+    existing_paper.energy.should_not == return_item["energy"]
   end
   
   it "should raise an exception if the unit is unacceptable" do

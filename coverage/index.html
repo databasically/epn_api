@@ -23,7 +23,7 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-20T09:30:57-05:00">2011-10-20T09:30:57-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-20T10:00:32-05:00">2011-10-20T10:00:32-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -34,15 +34,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.65
+         4.43
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>6</b> files in total.
-    <b>177</b> relevant lines. 
-    <span class="green"><b>177</b> lines covered</span> and
+    <b>181</b> relevant lines. 
+    <span class="green"><b>181</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -92,11 +92,11 @@
       <tr>
         <td class="strong"><a href="#af8f6ca05f591e69a3194a3642a4b0b7f8d1d114" class="src_link" title="lib/epn_api/paper.rb">lib/epn_api/paper.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>77</td>
-        <td>23</td>
-        <td>23</td>
+        <td>80</td>
+        <td>27</td>
+        <td>27</td>
         <td>0</td>
-        <td>11.7</td>
+        <td>10.4</td>
       </tr>
       
       <tr>
@@ -1016,8 +1016,8 @@
     <h3>lib/epn_api/paper.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>23</b> relevant lines. 
-      <span class="green"><b>23</b> lines covered</span> and
+      <b>27</b> relevant lines. 
+      <span class="green"><b>27</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1409,79 +1409,97 @@
           <code class="ruby">    </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="65">
-          
-          
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="66">
-          
-          
-          <code class="ruby">    </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="67">
+        <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
           <code class="ruby">    def update_via_epn</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">      #returns an updated paper hash if the paper has been updated</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby">      #returns nil if the paper is the same</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="70">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      existing_paper = self.dup</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="71">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">      api_doc = EpnApi::ApiDoc.new</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="72">
+        <li class="covered" data-hits="1" data-linenumber="67">
           <span class="hits">1</span>
           
           <code class="ruby">      api_doc.epn_response!( self )</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="73">
+        <li class="covered" data-hits="1" data-linenumber="68">
           <span class="hits">1</span>
           
-          <code class="ruby">      return self</code>
+          <code class="ruby">      p self.to_return_hash</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby">    </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="covered" data-hits="1" data-linenumber="71">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def to_return_hash</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="72">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      return_hash = Hash.new</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="73">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      %w(grade recycledcontent name trees water energy solid_waste greenhouse_gas).each do |key|</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="74">
+          <span class="hits">8</span>
+          
+          <code class="ruby">        return_hash.store( key, self.send(&quot;#{key}&quot;))</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="76">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      return return_hash</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="77">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">    </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">end</code>
@@ -2144,7 +2162,7 @@
         <li class="covered" data-hits="1" data-linenumber="46">
           <span class="hits">1</span>
           
-          <code class="ruby">  it &quot;should return the new values&quot; do</code>
+          <code class="ruby">  it &quot;should retrieve the new values&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="47">
@@ -2192,19 +2210,19 @@
         <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
-          <code class="ruby">    paper = paper.update_via_epn</code>
+          <code class="ruby">    return_item = paper.update_via_epn</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">    paper.should be_an_instance_of(EpnApi::Paper)</code>
+          <code class="ruby">    return_item.should be_an_instance_of(Hash)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="56">
           <span class="hits">1</span>
           
-          <code class="ruby">    existing_paper.energy.should_not == paper.energy</code>
+          <code class="ruby">    existing_paper.energy.should_not == return_item[&quot;energy&quot;]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="57">

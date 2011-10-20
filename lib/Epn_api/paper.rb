@@ -62,15 +62,17 @@ module EpnApi
     #   end
     # end
     
-    
-    
     def update_via_epn
-      #returns an updated paper hash if the paper has been updated
-      #returns nil if the paper is the same
-      existing_paper = self.dup
       api_doc = EpnApi::ApiDoc.new
       api_doc.epn_response!( self )
-      return self
+    end
+    
+    def to_return_hash
+      return_hash = Hash.new
+      %w(grade recycledcontent name trees water energy solid_waste greenhouse_gas).each do |key|
+        return_hash.store( key, self.send("#{key}"))
+      end
+      return return_hash
     end
     
   end
