@@ -11,13 +11,13 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'simplecov', '~> 0.5'
   gem.add_development_dependency 'webmock', '~> 1.7'
   gem.author = 'Chad Metcalf'
-  gem.description = %q{Ruby wrapper for the Environmental Paper Netwrok API}
+  gem.description = %q{Ruby wrapper for the Environmental Paper Network API}
   gem.email = 'chad@databasically.com'
   gem.files = `git ls-files`.split("\n")
   gem.homepage = 'http://github.com/databasically/epn_api'
-  gem.name = 'epnapi'
+  gem.name = 'epn-api'
   gem.require_paths = ['lib']
-  gem.summary = gem.description
+  gem.summary = %q{Ruby wrapper for the Environmental Paper Network Eco Calculator API}
   gem.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.version = ApiEpn::VERSION::STRING
+  gem.version = EpnApi::VERSION::STRING
 end
