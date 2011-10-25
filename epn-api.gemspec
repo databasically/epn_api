@@ -3,7 +3,7 @@
 require File.expand_path('../lib/epn_api/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.add_dependency 'nokogiri', '1.3.3'
+  gem.add_dependency 'nokogiri', '~> 1.3.3'
   # gem.add_dependency 'multi_json', '~> 1.0.3'
   gem.add_development_dependency 'rake', '~> 0.9'
   gem.add_development_dependency 'rdoc', '~> 3.8'
