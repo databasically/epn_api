@@ -23,7 +23,7 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-25T09:47:12-05:00">2011-10-25T09:47:12-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2011-10-25T10:16:04-05:00">2011-10-25T10:16:04-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -41,8 +41,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>6</b> files in total.
-    <b>180</b> relevant lines. 
-    <span class="green"><b>180</b> lines covered</span> and
+    <b>181</b> relevant lines. 
+    <span class="green"><b>181</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -62,9 +62,9 @@
       <tr>
         <td class="strong"><a href="#2b73a33383d73f7482cf60d5d992432c26a98b3b" class="src_link" title="lib/epn-api.rb">lib/epn-api.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>12</td>
-        <td>6</td>
-        <td>6</td>
+        <td>13</td>
+        <td>7</td>
+        <td>7</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -140,8 +140,8 @@
     <h3>lib/epn-api.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>6</b> relevant lines. 
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>7</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -161,46 +161,46 @@
           <code class="ruby">require 'net/http'</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require 'yaml'</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
+        <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
           <code class="ruby">module EpnApi</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">  </code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  autoload :Paper,  &quot;epn_api/paper&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">  autoload :Api,    &quot;epn_api/api&quot;</code>
+          <code class="ruby">  autoload :Paper,  &quot;epn_api/paper&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  autoload :ApiDoc, &quot;epn_api/api_doc&quot;</code>
+          <code class="ruby">  autoload :Api,    &quot;epn_api/api&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  </code>
+          <code class="ruby">  autoload :ApiDoc, &quot;epn_api/api_doc&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -216,6 +216,12 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">end</code>
@@ -632,19 +638,19 @@
         <li class="covered" data-hits="10" data-linenumber="31">
           <span class="hits">10</span>
           
-          <code class="ruby">      api_code = ''</code>
+          <code class="ruby">      api_code_doc = ''</code>
         </li>
       
         <li class="covered" data-hits="10" data-linenumber="32">
           <span class="hits">10</span>
           
-          <code class="ruby">      api_code = YAML::load( File.open( './lib/api_code.yml' ) )</code>
+          <code class="ruby">      api_code_doc = YAML::load_file( './config/api_code.yml' )</code>
         </li>
       
         <li class="covered" data-hits="10" data-linenumber="33">
           <span class="hits">10</span>
           
-          <code class="ruby">      return api_code</code>
+          <code class="ruby">      return api_code_doc['epn_api_code']</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
