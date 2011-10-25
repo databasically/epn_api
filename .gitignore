@@ -1,6 +1,6 @@
 # App Specific #
 ################
-API_code
+api_code.yml
 coverage/.resultset.json
 coverage/index.html
 

@@ -4,7 +4,7 @@ module EpnApi
     MAJOR = 1
     MINOR = 0
     PATCH = 2
-    PRE = nil
+    PRE = 1
     STRING = [MAJOR, MINOR, PATCH, PRE].compact.join('.')
   end
 

@@ -29,9 +29,7 @@ module EpnApi
     
     def get_api_code
       api_code = ''
-      File.open("./api_code", "r") { |f|
-          api_code = f.read
-      }
+      api_code = YAML::load( File.open( 'api_code.yml' ) )
       return api_code
     end
 

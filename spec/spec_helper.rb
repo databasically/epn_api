@@ -5,5 +5,5 @@ require 'simplecov'
 SimpleCov.start
 
 require 'webmock/rspec'
-require 'epn_api'
+require 'epn-api'
 require 'rspec'
