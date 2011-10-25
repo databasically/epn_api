@@ -28,9 +28,9 @@ module EpnApi
     end
     
     def get_api_code
-      api_code = ''
-      api_code = YAML::load( File.open( 'api_code.yml' ) )
-      return api_code
+      api_code_doc = ''
+      api_code_doc = YAML::load_file( './config/api_code.yml' )
+      return api_code_doc['epn_api_code']
     end
 
     def from_epn_api(response_body)
