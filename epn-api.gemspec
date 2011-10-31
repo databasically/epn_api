@@ -16,7 +16,7 @@ Gem::Specification.new do |gem|
   gem.files = `git ls-files`.split("\n")
   gem.homepage = 'http://github.com/databasically/epn_api'
   gem.name = 'epn-api'
-  gem.require_paths = ['lib']
+  gem.require_paths = ['lib', 'lib/epn_api']
   gem.summary = %q{Ruby wrapper for the Environmental Paper Network Eco Calculator API}
   gem.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.version = EpnApi::VERSION::STRING
