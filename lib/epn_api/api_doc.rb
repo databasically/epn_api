@@ -8,7 +8,7 @@ module EpnApi
                   :tss, :voc, :wastewater, :wood_use
     
     
-    TREES_PER_TON_OF_WOOD_USE = 6.93
+    TREES_PER_TON_OF_WOOD_USE = 6.43
     
     def to_epn_xml( paper )
       builder = Nokogiri::XML::Builder.new do |xml|
